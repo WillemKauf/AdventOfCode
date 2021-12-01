@@ -1,0 +1,4 @@
+*.txt
+input/
+get_day_input.py
+get_input.py
