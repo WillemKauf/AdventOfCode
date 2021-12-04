@@ -37,10 +37,10 @@ def part_1(num_lst, grid_lst):
                     col.append(grid[i][j])
                 if all([i == "X" for i in col]):
                     res = 0
-                    for j in range(0, len(grid)):
-                        for i in range(0, len(grid[j])):
-                            if grid[j][i] != "X":
-                                res += int(grid[j][i])
+                    for jj in range(0, len(grid)):
+                        for ii in range(0, len(grid[jj])):
+                            if grid[jj][ii] != "X":
+                                res += int(grid[jj][ii])
                     return res*int(num)
 
 def part_2(num_lst, grid_lst):
@@ -59,10 +59,10 @@ def part_2(num_lst, grid_lst):
                     if len(won_lst) == len(grid_lst):
                         last_grid = grid
                         res = 0
-                        for j in range(0, len(last_grid)):
-                            for i in range(0, len(last_grid[j])):
-                                if last_grid[j][i] != "X":
-                                    res += int(last_grid[j][i])
+                        for jj in range(0, len(last_grid)):
+                            for ii in range(0, len(last_grid[jj])):
+                                if last_grid[jj][ii] != "X":
+                                    res += int(last_grid[jj][ii])
                         return res*int(num)
                 col = []
                 for i in range(0, len(grid)):
@@ -72,10 +72,10 @@ def part_2(num_lst, grid_lst):
                     if len(won_lst) == len(grid_lst):
                         last_grid = grid
                         res = 0
-                        for j in range(0, len(last_grid)):
-                            for i in range(0, len(last_grid[j])):
-                                if last_grid[j][i] != "X":
-                                    res += int(last_grid[j][i])
+                        for jj in range(0, len(last_grid)):
+                            for ii in range(0, len(last_grid[jj])):
+                                if last_grid[jj][ii] != "X":
+                                    res += int(last_grid[jj][ii])
                         return res*int(num)
 
 def main():
