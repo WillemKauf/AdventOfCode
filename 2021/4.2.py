@@ -6,6 +6,7 @@ def read_input():
     with open("input/input4.txt") as input_file:
         num_lst = [int(i) for i in input_file.readline().rstrip().split(",")]
         curr_lst = []
+        line = input_file.readline()
         for line in input_file:
             line = line.rstrip()
             if line == "":
@@ -15,7 +16,7 @@ def read_input():
             curr_lst.append([int(i) for i in line.split()])
         if len(curr_lst):
             grid_lst.append(np.array(curr_lst, dtype=np.float16))
-    return num_lst, grid_lst[1:]
+    return num_lst, grid_lst
 
 def grid_won(grid):
     rows = [list(grid[j,:]) for j in range(0, len(grid))]
@@ -52,8 +53,9 @@ def part_2(num_lst, grid_lst):
                     return int(np.nansum(grid)*num)
 
 def main():
-    print(part_1(*read_input()))
-    print(part_2(*read_input()))
+    input_lsts = read_input()
+    print(part_1(*input_lsts))
+    print(part_2(*input_lsts))
 
 if __name__ == "__main__":
     main()

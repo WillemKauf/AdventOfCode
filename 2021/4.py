@@ -4,6 +4,7 @@ def read_input():
     with open("input/input4.txt") as input_file:
         num_lst = input_file.readline().rstrip().split(",")
         curr_lst = []
+        line = input_file.readline()
         for line in input_file:
             line = line.rstrip()
             if line == "":
@@ -13,7 +14,7 @@ def read_input():
             curr_lst.append(line.split())
         if len(curr_lst):
             grid_lst.append(curr_lst)
-    return num_lst, grid_lst[1:]
+    return num_lst, grid_lst
 
 def part_1(num_lst, grid_lst):
     for num in num_lst:
@@ -79,8 +80,9 @@ def part_2(num_lst, grid_lst):
                         return res*int(num)
 
 def main():
-    print(part_1(*read_input()))
-    print(part_2(*read_input()))
+    input_lsts = read_input()
+    print(part_1(*input_lsts))
+    print(part_2(*input_lsts))
 
 if __name__ == "__main__":
     main()
