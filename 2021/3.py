@@ -42,10 +42,9 @@ def part_2(input_lst):
                 continue
             if num[i] != max_res:
                 oxygen_lst[k] = None
-
     oxygen = [i for i in oxygen_lst if i != None][0]
-    dioxide_lst = deepcopy(input_lst)
 
+    dioxide_lst = deepcopy(input_lst)
     for i in range(0, len(dioxide_lst[0])):
         if dioxide_lst.count(None) == len(dioxide_lst)-1:
             break
@@ -64,8 +63,8 @@ def part_2(input_lst):
                 continue
             if num[i] != min_res:
                 dioxide_lst[k] = None
-
     dioxide = [i for i in dioxide_lst if i != None][0]
+
     return int(oxygen, 2)*int(dioxide,2)
 
 def main():
