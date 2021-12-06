@@ -8,9 +8,6 @@ def read_input():
 
 def part_1(input_lst):
     for i in range(0, 80):
-        hsh_map = {}
-        for num in set(input_lst):
-            hsh_map[num] = input_lst.count(num)
         counter = 0
         for i in range(0, len(input_lst)):
             input_lst[i] -= 1
