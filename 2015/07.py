@@ -6,7 +6,7 @@ def read_input():
             input_arr.append(line)
     return input_arr
 
-def solvePuzzle(instructArr, hash_dict):
+def part_1(instruct_arr, hash_dict):
     """
     &: AND
     |: OR
@@ -15,9 +15,9 @@ def solvePuzzle(instructArr, hash_dict):
     >>: RSHIFT
     """
     operations = ['RSHIFT', 'OR', 'LSHIFT', 'AND']
-    while len(instructArr):
+    while len(instruct_arr):
         used_instructs = []
-        for instruct in instructArr:
+        for instruct in instruct_arr:
             if len(instruct) == 3:
                 try:
                     if instruct[2] not in hash_dict.keys():
@@ -59,13 +59,17 @@ def solvePuzzle(instructArr, hash_dict):
                         hash_dict[tar] = hash_dict[arg1] & int(arg2)
                         used_instructs.append(instruct)
         for used_instruct in used_instructs:
-            instructArr.remove(used_instruct)
+            instruct_arr.remove(used_instruct)
     return hash_dict["a"]
 
-def main():
-    new_b = solvePuzzle(read_input(), {})
-    print(new_b)
-    print(solvePuzzle(read_input(), {"b":new_b}))
+def part_2(instruct_arr, hash_dict):
+    return part_1(instruct_arr, hash_dict)
 
-main()
+def main():
+    new_b = part_1(read_input(), {})
+    print(new_b)
+    print(part_2(read_input(), {"b":new_b}))
+
+if __name__ == "__main__":
+   main()
 

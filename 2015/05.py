@@ -5,7 +5,6 @@ def read_input():
             input_arr.append(line.rstrip())
     return input_arr
 
-
 def part_1(input_arr):
     def check_one(string):
         vowels = ['a', 'e', 'i', 'o', 'u']
@@ -52,4 +51,5 @@ def main():
     print(part_1(input_arr))
     print(part_2(input_arr))
 
-main()
+if __name__ == "__main__":
+   main()

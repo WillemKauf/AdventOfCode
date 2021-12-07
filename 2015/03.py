@@ -46,4 +46,5 @@ def main():
     print(part_1(input_arr))
     print(part_2(input_arr))
 
-main()
+if __name__ == "__main__":
+   main()

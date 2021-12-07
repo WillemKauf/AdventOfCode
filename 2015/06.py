@@ -21,7 +21,6 @@ def read_input():
             input_arr.append([action, index_A, index_B])
     return input_arr
 
-
 def part_1(input_arr):
     grid = [[0 for i in range(0, 1000)] for i in range(0, 1000)]
     for (cmd, indices_A, indices_B) in input_arr:
@@ -52,10 +51,10 @@ def part_2(input_arr):
                 grid[j][i] = func(grid[j][i])
     return sum([sum([i for i in j]) for j in grid])
 
-
 def main():
     input_arr = read_input()
     print(part_1(input_arr))
     print(part_2(input_arr))
 
-main()
+if __name__ == "__main__":
+   main()

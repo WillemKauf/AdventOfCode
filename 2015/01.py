@@ -18,10 +18,10 @@ def part_2(input_arr):
             return i+1
     return None
 
-
 def main():
     input_arr = read_input()
     print(part_1(input_arr))
     print(part_2(input_arr))
 
-main()
+if __name__ == "__main__":
+   main()

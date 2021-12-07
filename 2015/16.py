@@ -1,80 +1,83 @@
 import re
 
-def readInput():
-    inputFile = open("input/input16.txt", "r")
-    thingsArr = []
-    dictArr = []
-    for line in inputFile:
-        inputDict = {}
+def read_input():
+    input_file = open("input/input16.txt", "r")
+    things_arr = []
+    dict_arr = []
+    #This sure is old code
+    for line in input_file:
+        input_dict = {}
         currentLine = line.split()
-        thingOne = str(currentLine[2].split(":")[0])
-        numThingOne = int(currentLine[3].split(",")[0])
-        thingTwo = str(currentLine[4].split(":")[0])
-        numThingTwo = int(currentLine[5].split(",")[0])
-        thingThree = str(currentLine[6].split(":")[0])
-        numThingThree = int(currentLine[7])
-        sueNum = int(currentLine[1].split(":")[0])
-        inputDict[thingOne]  = numThingOne
-        inputDict[thingTwo]  = numThingTwo
-        inputDict[thingThree] = numThingThree
-        if thingOne not in thingsArr:
-            thingsArr.append(thingOne)
-        dictArr.append(inputDict)
+        thing_one = str(currentLine[2].split(":")[0])
+        num_thing_one = int(currentLine[3].split(",")[0])
+        thing_two = str(currentLine[4].split(":")[0])
+        num_thing_two = int(currentLine[5].split(",")[0])
+        thing_three = str(currentLine[6].split(":")[0])
+        num_thing_three = int(currentLine[7])
+        sue_num = int(currentLine[1].split(":")[0])
+        input_dict[thing_one]  = num_thing_one
+        input_dict[thing_two]  = num_thing_two
+        input_dict[thing_three] = num_thing_three
+        if thing_one not in things_arr:
+            things_arr.append(thing_one)
+        dict_arr.append(input_dict)
 
-    for thing in thingsArr:
-        for stuff in dictArr:
+    for thing in things_arr:
+        for stuff in dict_arr:
             if thing not in stuff.keys():
                 stuff[thing] = 999
 
-    matchDict = {"children":3, "cats":7, "samoyeds":2, "pomeranians":3, "akitas":0, "vizslas":0, "goldfish":5, "trees":3, "cars":2, "perfumes":1}
-    return dictArr, thingsArr, matchDict
+    match_dict = {"children":3, "cats":7, "samoyeds":2, "pomeranians":3, "akitas":0, "vizslas":0, "goldfish":5, "trees":3, "cars":2, "perfumes":1}
+    return dict_arr, things_arr, match_dict
 
-def part_1(dictArr, thingsArr, matchDict):
-    matchesFlag = False
-    matchArr = []
-    for term in dictArr:
-            for thingName in thingsArr:
-                if term[thingName] == matchDict[thingName] or term[thingName] == 999:
-                    matchesFlag = True
+def part_1(dict_arr, things_arr, match_dict):
+    matches_flag = False
+    match_arr = []
+    for term in dict_arr:
+            for thing_name in things_arr:
+                if term[thing_name] == match_dict[thing_name] or term[thing_name] == 999:
+                    matches_flag = True
                 else:
-                    matchesFlag = False
+                    matches_flag = False
                     break
-            if matchesFlag == True:
-                matchArr.append(dictArr.index(term)+1)
-    return matchArr
+            if matches_flag == True:
+                return dict_arr.index(term)+1
 
-def part_2(dictArr, thingsArr, matchDict):
-    matchesFlag = False
-    matchArr = []
-    for term in dictArr:
-            for thingName in thingsArr:
-                if thingName == "cats" or thingName == "trees":
-                    if term[thingName] > matchDict[thingName] or term[thingName] == 999:
-                        matchesFlag = True
+    return None
+
+def part_2(dict_arr, things_arr, match_dict):
+    matches_flag = False
+    match_arr = []
+    for term in dict_arr:
+            for thing_name in things_arr:
+                if thing_name == "cats" or thing_name == "trees":
+                    if term[thing_name] > match_dict[thing_name] or term[thing_name] == 999:
+                        matches_flag = True
                     else:
-                        matchesFlag = False
+                        matches_flag = False
                         break
-                elif thingName == "pomeranians" or thingName == "goldfish":
-                    if term[thingName] < matchDict[thingName] or term[thingName] == 999:
-                        matchesFlag = True
+                elif thing_name == "pomeranians" or thing_name == "goldfish":
+                    if term[thing_name] < match_dict[thing_name] or term[thing_name] == 999:
+                        matches_flag = True
                     else:
-                        matchesFlag = False
+                        matches_flag = False
                         break
                 else:
-                    if term[thingName] == matchDict[thingName] or term[thingName] == 999:
-                        matchesFlag = True
+                    if term[thing_name] == match_dict[thing_name] or term[thing_name] == 999:
+                        matches_flag = True
                     else:
-                        matchesFlag = False
+                        matches_flag = False
                         break
 
-            if matchesFlag == True:
-                matchArr.append(dictArr.index(term)+1)
+            if matches_flag == True:
+                return dict_arr.index(term)+1
 
-    return matchArr
+    return None
 
 def main():
-    dictArr, thingsArr, matchDict = readInput()
-    print(part_1(dictArr, thingsArr, matchDict))
-    print(part_2(dictArr, thingsArr, matchDict))
+    dict_arr, things_arr, match_dict = readInput()
+    print(part_1(dict_arr, things_arr, match_dict))
+    print(part_2(dict_arr, things_arr, match_dict))
 
-main()
+if __name__ == "__main__":
+    main()

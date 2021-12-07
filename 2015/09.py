@@ -159,5 +159,5 @@ def main():
     print(part_1(graph))
     print(part_2(graph))
 
-main()
-
+if __name__ == "__main__":
+   main()

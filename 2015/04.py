@@ -1,4 +1,5 @@
 import hashlib
+
 def read_input():
     input_arr = []
     with open("input/input4.txt") as input_file:
@@ -27,4 +28,5 @@ def main():
     print(part_1(input_arr))
     print(part_2(input_arr))
 
-main()
+if __name__ == "__main__":
+   main()

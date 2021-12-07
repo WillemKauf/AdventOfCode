@@ -61,4 +61,5 @@ def main():
         if numPwd == 2:
             break
 
-main()
+if __name__ == "__main__":
+   main()

@@ -12,18 +12,21 @@ def part_1(input_num):
         newNum += str(len(nums))+str(nums[0])
     return newNum
 
-
 def part_2(input_num):
     return part_1(input_num)
 
 def main():
     input_num = read_input()
-    for i in range(0, 40):
+
+    for _ in range(0, 40):
         input_num = part_1(input_num)
     print(len(input_num))
+
     input_num = read_input()
-    for i in range(0, 50):
-        input_num = part_2(input_num)
+
+    for _ in range(0, 50):
+        input_num = part_1(input_num)
     print(len(input_num))
 
-main()
+if __name__ == "__main__":
+   main()

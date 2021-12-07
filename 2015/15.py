@@ -1,6 +1,4 @@
-import math
 import re
-import itertools
 
 class Cookie:
     def __init__(self, name, cap, dur, fla, tex, cal):
@@ -53,5 +51,5 @@ def main():
     print(part_1(cookie_arr))
     print(part_2(cookie_arr))
 
-main()
-
+if __name__ == "__main__":
+   main()

@@ -71,4 +71,5 @@ def main():
     print(part_1(r_l))
     print(part_2(r_l))
 
-main()
+if __name__ == "__main__":
+   main()
