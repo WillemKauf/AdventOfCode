@@ -14,16 +14,15 @@ def part_1(input_lst):
     for line in input_lst:
         lst = deque(line[0])
         for i in range(1, len(line)):
-            curr_c = lst.popleft()
             next_c = line[i]
             if next_c in hsh_map:
-                lst.appendleft(curr_c)
                 lst.appendleft(next_c)
-                continue
-            expected_c = hsh_map[curr_c]
-            if next_c != expected_c:
-                res += score_map[next_c]
-                break
+            else:
+                curr_c = lst.popleft()
+                expected_c = hsh_map[curr_c]
+                if next_c != expected_c:
+                    res += score_map[next_c]
+                    break
     return res
 
 def part_2(input_lst):
@@ -34,16 +33,15 @@ def part_2(input_lst):
         lst = deque(line[0])
         flag = True
         for i in range(1, len(line)):
-            curr_c = lst.popleft()
             next_c = line[i]
             if next_c in hsh_map:
-                lst.appendleft(curr_c)
                 lst.appendleft(next_c)
-                continue
-            expected_c = hsh_map[curr_c]
-            if next_c != expected_c:
-                flag = False
-                break
+            else:
+                curr_c = lst.popleft()
+                expected_c = hsh_map[curr_c]
+                if next_c != expected_c:
+                    flag = False
+                    break
         if flag:
             incomplete_lst.append(line)
 
@@ -51,12 +49,12 @@ def part_2(input_lst):
     for line in incomplete_lst:
         lst = deque(line[0])
         for i in range(1, len(line)):
-            curr_c = lst.popleft()
             next_c = line[i]
             if next_c in hsh_map:
-                lst.appendleft(curr_c)
                 lst.appendleft(next_c)
-                continue
+            else:
+                lst.popleft()
+
         scr = 0
         for c in lst:
             scr *= 5
