@@ -8,19 +8,20 @@ def read_input():
             input_lst.append([int(i) for i in line.rstrip()])
     return input_lst
 
-def part_1(input_lst):
-    ddir = [comb for comb in itertools.product([-1, 0, 1], repeat=2,) if abs(comb[0]) + abs(comb[1]) < 3]
-    def flash(i,j, input_lst, seen):
-        seen.add((i,j))
-        for di,dj in ddir:
-            if ((i+di),(j+dj)) in seen:
-                continue
-            if 0 <= i+di < len(input_lst[j]) and 0 <= j+dj < len(input_lst):
-                input_lst[j+dj][i+di] += 1
-                if input_lst[j+dj][i+di] > 9:
-                    input_lst, seen = flash(i+di, j+dj, input_lst, seen)
-        return input_lst, seen
+ddir = [comb for comb in itertools.product([-1, 0, 1], repeat=2,) if abs(comb[0]) + abs(comb[1]) < 3]
 
+def flash(i,j, input_lst, seen):
+    seen.add((i,j))
+    for di,dj in ddir:
+        if ((i+di),(j+dj)) in seen:
+            continue
+        if 0 <= i+di < len(input_lst[j]) and 0 <= j+dj < len(input_lst):
+            input_lst[j+dj][i+di] += 1
+            if input_lst[j+dj][i+di] > 9:
+                input_lst, seen = flash(i+di, j+dj, input_lst, seen)
+    return input_lst, seen
+
+def part_1(input_lst):
     res = 0
     for k in range(0, 100):
         for j in range(0, len(input_lst)):
@@ -38,18 +39,6 @@ def part_1(input_lst):
     return res
 
 def part_2(input_lst):
-    ddir = [comb for comb in itertools.product([-1, 0, 1], repeat=2,) if abs(comb[0]) + abs(comb[1]) < 3]
-    def flash(i,j, input_lst, seen):
-        seen.add((i,j))
-        for di,dj in ddir:
-            if ((i+di),(j+dj)) in seen:
-                continue
-            if 0 <= i+di < len(input_lst[j]) and 0 <= j+dj < len(input_lst):
-                input_lst[j+dj][i+di] += 1
-                if input_lst[j+dj][i+di] > 9:
-                    input_lst, seen = flash(i+di, j+dj, input_lst, seen)
-        return input_lst, seen
-
     res = 0
     cnt = 0
     while True:
