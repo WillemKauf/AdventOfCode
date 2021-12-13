@@ -1,5 +1,4 @@
 import itertools
-from copy import deepcopy
 
 def read_input():
     input_lst = []
@@ -23,16 +22,18 @@ def flash(i,j, input_lst, seen):
 
 def part_1(input_lst):
     res = 0
-    for k in range(0, 100):
+    for _ in range(0, 100):
         for j in range(0, len(input_lst)):
             for i in range(0, len(input_lst[j])):
                 input_lst[j][i] += 1
 
         seen = set()
+
         for j in range(0, len(input_lst)):
             for i in range(0, len(input_lst[j])):
                 if input_lst[j][i] > 9 and (i,j) not in seen:
                     input_lst, seen = flash(i,j, input_lst, seen)
+
         for ii,jj in seen:
             input_lst[jj][ii] = 0
         res += len(seen)
@@ -43,17 +44,21 @@ def part_2(input_lst):
     cnt = 0
     while True:
         cnt += 1
+
         for j in range(0, len(input_lst)):
             for i in range(0, len(input_lst[j])):
                 input_lst[j][i] += 1
 
         seen = set()
+
         for j in range(0, len(input_lst)):
             for i in range(0, len(input_lst[j])):
                 if input_lst[j][i] > 9 and (i,j) not in seen:
                     input_lst, seen = flash(i,j, input_lst, seen)
+
         for ii,jj in seen:
             input_lst[jj][ii] = 0
+
         if len(seen) == len(input_lst)*len(input_lst[j]):
             return cnt
     return res

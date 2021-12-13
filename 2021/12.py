@@ -1,4 +1,4 @@
-from collections import defaultdict, deque
+from collections import defaultdict
 
 def read_input():
     input_map = defaultdict(list)
@@ -12,7 +12,7 @@ def read_input():
 
 def part_1(input_map):
     queue = ["start"]
-    def bfs(queue, seen):
+    def dfs(queue, seen):
         res = 0
         while len(queue):
             curr_node = queue.pop(0)
@@ -20,12 +20,12 @@ def part_1(input_map):
                 return 1
             for neighbour in input_map[curr_node]:
                 if neighbour not in seen or neighbour.isupper():
-                    res += bfs(queue+[neighbour], seen+[curr_node])
+                    res += dfs(queue+[neighbour], seen+[curr_node])
         return res
-    return bfs(queue, [])
+    return dfs(queue, [])
 
 def part_2(input_map):
-    def bfs(queue, unique_cave, seen):
+    def dfs(queue, unique_cave, seen):
         seen_paths = []
         while len(queue):
             curr_node = queue.pop(0)
@@ -33,7 +33,7 @@ def part_2(input_map):
                 return ["".join(seen+[curr_node])]
             for neighbour in input_map[curr_node]:
                 if neighbour not in seen or (neighbour == unique_cave and seen.count(neighbour) < 2) or neighbour.isupper():
-                    new_seen_paths = bfs(queue+[neighbour], unique_cave, seen+[curr_node])
+                    new_seen_paths = dfs(queue+[neighbour], unique_cave, seen+[curr_node])
                     for path in new_seen_paths:
                         seen_paths.append(path)
         return seen_paths
@@ -41,13 +41,9 @@ def part_2(input_map):
     res = 0
     seen_paths = []
     for unique_cave in [cave for cave in set(input_map) if cave not in ["start", "end"] and cave.islower()]:
-        new_seen_paths = bfs(["start"], unique_cave, [])
+        new_seen_paths = dfs(["start"], unique_cave, [])
         for path in new_seen_paths:
-            if isinstance(path, list):
-                for p in path:
-                    seen_paths.append(p)
-            else:
-                seen_paths.append(path)
+            seen_paths.append(path)
     return len(set(seen_paths))
 
 def main():
