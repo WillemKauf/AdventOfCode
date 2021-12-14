@@ -24,14 +24,14 @@ def part_1(input_lst, instruct_lst):
     instruct_lst = [instruct_lst[0]]
     x_max = max([i[0] for i in input_lst])+1
     y_max = max([i[1] for i in input_lst])+1
-    arr = np.zeros((y_max, x_max), dtype=np.int32)
+    arr = np.zeros((y_max, x_max), dtype=np.int8)
     for x,y in input_lst:
         arr[y][x] = 1
     for cmd, val in instruct_lst:
         if cmd == "y":
-            flip_arr = np.flip(arr[val+1:][:], 0)
-            arr = arr[:val][:] + flip_arr
-        if cmd == "x":
+            flip_arr = np.flip(arr[val+1:, :], 0)
+            arr = arr[:val, :] + flip_arr
+        elif cmd == "x":
             flip_arr = np.flip(arr[:, val+1:], 1)
             arr = arr[:, :val] + flip_arr
     return np.sum(np.clip(arr, 0, 1))
@@ -39,14 +39,14 @@ def part_1(input_lst, instruct_lst):
 def part_2(input_lst, instruct_lst):
     x_max = max([i[0] for i in input_lst])+1
     y_max = max([i[1] for i in input_lst])+1
-    arr = np.zeros((y_max, x_max), dtype=np.int32)
+    arr = np.zeros((y_max, x_max), dtype=np.int8)
     for x,y in input_lst:
         arr[y][x] = 1
     for cmd, val in instruct_lst:
         if cmd == "y":
             flip_arr = np.flip(arr[val+1:][:], 0)
             arr = arr[:val][:] + flip_arr
-        if cmd == "x":
+        elif cmd == "x":
             flip_arr = np.flip(arr[:, val+1:], 1)
             arr = arr[:, :val] + flip_arr
 
