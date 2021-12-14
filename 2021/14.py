@@ -44,7 +44,7 @@ def part_2(input_mol, input_dct):
         final_count_dct[pair[0]] += num
     final_count_dct[input_mol[-1]] += 1
 
-    return(max(final_count_dct.values()) - min(final_count_dct.values()))
+    return max(final_count_dct.values()) - min(final_count_dct.values())
 
 def main():
     print(part_1(*read_input()))
