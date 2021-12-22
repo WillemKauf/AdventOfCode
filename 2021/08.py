@@ -37,16 +37,16 @@ def part_1(keywords_lst, output_lst):
 
 def part_2(keywords_lst, output_lst):
     #This ~was~ needed
-    dct = {0:["X"]*3 + [None] + ["X"]*3,
-           1:[None]*2 + ["X"] + [None]*2 + ["X"] + [None],
-           2:["X"] + [None] + ["X"]*3 + [None] + ["X"],
-           3:["X"] + [None] + ["X"]*2 + [None] + ["X"]*2,
-           4:[None] + ["X"]*3 + [None] + ["X"] + [None],
-           5:["X"]*2 + [None] + ["X"] + [None] + ["X"]*2,
-           6:["X"]*2 + [None] + ["X"]*4,
-           7:["X"] + [None] + ["X"] + [None]*2 + ["X"] + [None],
+    dct = {0:["X"]*3  + [None]  + ["X"]*3,
+           1:[None]*2 + ["X"]   + [None]*2 + ["X"]    + [None],
+           2:["X"]    + [None]  + ["X"]*3  + [None]   + ["X"],
+           3:["X"]    + [None]  + ["X"]*2  + [None]   + ["X"]*2,
+           4:[None]   + ["X"]*3 + [None]   + ["X"]    + [None],
+           5:["X"]*2  + [None]  + ["X"]    + [None]   + ["X"]*2,
+           6:["X"]*2  + [None]  + ["X"]*4,
+           7:["X"]    + [None]  + ["X"]    + [None]*2 + ["X"] + [None],
            8:["X"]*7,
-           9:["X"]*4 + [None] + ["X"]*2}
+           9:["X"]*4  + [None]  + ["X"]*2}
     for k, v in dct.items():
         assert(len(v) == 7)
 
