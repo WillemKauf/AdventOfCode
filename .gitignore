@@ -2,3 +2,4 @@
 input/
 get_day_input.py
 get_input.py
+__pycache__
