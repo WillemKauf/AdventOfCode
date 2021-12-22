@@ -48,7 +48,6 @@ def part_2(input_lst, pos):
         for i in range(0, len(ast_angles)):
             curr = ast_angles[i][1].pop(0)
             num_destroyed += 1
-            print(num_destroyed, curr)
             if num_destroyed == 200:
                 return curr[0]*100+curr[1]
     return None
