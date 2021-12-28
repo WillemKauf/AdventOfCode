@@ -33,6 +33,20 @@ class IntCode:
             if output != None:
                 yield self.output[-1]
 
+    def parse_tape_with_n_output(self, n):
+        if self.status == "Waiting" and len(self.input):
+            self.status = "Running"
+        output_lst = []
+        while self.index < self.length:
+            if self.status != "Running":
+                break
+            output = self.parse_code()
+            if output != None:
+                output_lst.append(output)
+            if len(output_lst) == n:
+                return output_lst
+        return [None]*n
+
     def read_tape(self, tape_value, mode):
         if mode == 0: #Position mode
             return self.tape[tape_value] #Use tape value as pointer
@@ -48,7 +62,7 @@ class IntCode:
         val_1, val_2            = self.read_tape(read_p1, mode[0]), self.read_tape(read_p2, mode[1])
         if mode[2] == 2:
             res_p += self.relative_base
-        self.tape[res_p]        = val_1 + val_2
+        self.tape[res_p] = val_1 + val_2
         self.index += 4
 
     def multiply(self, mode):
@@ -56,7 +70,7 @@ class IntCode:
         val_1, val_2            = self.read_tape(read_p1, mode[0]), self.read_tape(read_p2, mode[1])
         if mode[2] == 2:
             res_p += self.relative_base
-        self.tape[res_p]        = val_1 * val_2
+        self.tape[res_p] = val_1 * val_2
         self.index += 4
 
     def get_input(self, mode):
@@ -117,7 +131,7 @@ class IntCode:
         self.index += 2
 
     def parse_code(self):
-        opcode = self.tape[self.index]
+        opcode    = self.tape[self.index]
         A,B,C,D,E = list(str(opcode).zfill(5))
         cmd       = int(D+E)
         mode      = [int(C), int(B), int(A)]
@@ -142,7 +156,6 @@ class IntCode:
             self.set_relative_base(mode)
         elif cmd == 99:
             self.status = "Halted"
-            return None
         else:
             raise ValueError(cmd, self.index, self.tape[self.index])
         return None
@@ -178,4 +191,3 @@ class IntCodes():
                     self.output_buffer[ic.rank].append(output)
                 self.set_n_output(ic.rank)
         return [ic.output for ic in self.ics]
-
