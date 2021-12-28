@@ -33,9 +33,6 @@ def part_1(grid):
             return it
         grid = new_grid
 
-def part_2(input_lst):
-    pass
-
 def main():
     print(part_1(read_input()))
 

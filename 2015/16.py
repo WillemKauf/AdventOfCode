@@ -7,14 +7,14 @@ def read_input():
     #This sure is old code
     for line in input_file:
         input_dict = {}
-        currentLine = line.split()
-        thing_one = str(currentLine[2].split(":")[0])
-        num_thing_one = int(currentLine[3].split(",")[0])
-        thing_two = str(currentLine[4].split(":")[0])
-        num_thing_two = int(currentLine[5].split(",")[0])
-        thing_three = str(currentLine[6].split(":")[0])
-        num_thing_three = int(currentLine[7])
-        sue_num = int(currentLine[1].split(":")[0])
+        current_line = line.split()
+        thing_one = str(current_line[2].split(":")[0])
+        num_thing_one = int(current_line[3].split(",")[0])
+        thing_two = str(current_line[4].split(":")[0])
+        num_thing_two = int(current_line[5].split(",")[0])
+        thing_three = str(current_line[6].split(":")[0])
+        num_thing_three = int(current_line[7])
+        sue_num = int(current_line[1].split(":")[0])
         input_dict[thing_one]  = num_thing_one
         input_dict[thing_two]  = num_thing_two
         input_dict[thing_three] = num_thing_three
