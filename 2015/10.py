@@ -17,7 +17,6 @@ def part_1(input_num):
         input_num = look_say(input_num)
     return len(input_num)
 
-
 def part_2(input_num):
     for _ in range(0, 50):
         input_num = look_say(input_num)
@@ -26,7 +25,6 @@ def part_2(input_num):
 def main():
     print(part_1(read_input()))
     print(part_2(read_input()))
-
 
 if __name__ == "__main__":
    main()
