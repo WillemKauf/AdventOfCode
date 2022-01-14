@@ -19,7 +19,6 @@ def hsh(input_lst, lst=[i for i in range(0, 255+1)], i=0, ss=0):
         ss += 1
     return lst, i, ss
 
-
 def knot_hsh(ord_lst):
     n_iter    = 64
     n         = len(ord_lst)

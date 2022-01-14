@@ -44,7 +44,6 @@ def part_1(input_lst):
         pos = new_pos
     return None
 
-
 def main():
     code, steps = part_1(read_input())
     print(code)

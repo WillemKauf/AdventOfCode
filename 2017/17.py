@@ -13,7 +13,6 @@ def part_1(num_steps):
         n = len(queue)
         queue.rotate(-num_steps)
         queue.append(n)
-
     return queue.popleft()
 
 def part_2(num_steps):

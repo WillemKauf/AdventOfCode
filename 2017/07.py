@@ -6,8 +6,8 @@ def part_1():
         c_dct = {}
         with open("input/input7.txt") as input_file:
             for line in input_file:
-                line            = line.rstrip().split(" -> ")
-                v               = line[0].split()
+                line        = line.rstrip().split(" -> ")
+                v           = line[0].split()
                 v_dct[v[0]] = int(v[1][1:-1])
                 if len(line) > 1:
                     for c in line[1].split(", "):
@@ -35,8 +35,8 @@ def part_2(bottom_node):
         c_dct = defaultdict(list)
         with open("input/input7.txt") as input_file:
             for line in input_file:
-                line            = line.rstrip().split(" -> ")
-                v               = line[0].split()
+                line        = line.rstrip().split(" -> ")
+                v           = line[0].split()
                 v_dct[v[0]] = int(v[1][1:-1])
                 if len(line) > 1:
                     for c in line[1].split(", "):
@@ -61,7 +61,7 @@ def part_2(bottom_node):
             for c in c_dct[node]:
                 v = c_sums[c]
                 if counter[v] == 1:
-                    return  v_dct[c]-d, True
+                    return v_dct[c]-d, True
         return sum(c_sums.values()), False
     v_dct, c_dct = read_input()
     return recursive_search(bottom_node, 0)[0]
