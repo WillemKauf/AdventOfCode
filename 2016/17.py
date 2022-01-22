@@ -28,7 +28,7 @@ def part_1(input_str):
             if 0 <= new_pos[0] < 4 and 0 <= new_pos[1] < 4:
                 hsh = hashlib.md5((input_str + seen).encode()).hexdigest()
                 if hsh[ind] in open_lst:
-                    queue.appendleft((new_pos, num_steps+1, seen+n))
+                    queue.append((new_pos, num_steps+1, seen+n))
     return path
 
 def part_2(input_str):
@@ -48,7 +48,7 @@ def part_2(input_str):
             if 0 <= new_pos[0] < 4 and 0 <= new_pos[1] < 4:
                 hsh = hashlib.md5((input_str + seen).encode()).hexdigest()
                 if hsh[ind] in open_lst:
-                    queue.appendleft((new_pos, num_steps+1, seen+n))
+                    queue.append((new_pos, num_steps+1, seen+n))
     return max_steps
 
 

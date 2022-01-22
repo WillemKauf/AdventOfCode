@@ -49,7 +49,7 @@ def part_2(input_lst, low_points):
                         continue
                     neighbour = input_lst[curr_j+dy][curr_i+dx]
                     if (curr_i+dx, curr_j+dy) not in seen and neighbour != 9:
-                        queue.appendleft((curr_i+dx,curr_j+dy))
+                        queue.append((curr_i+dx,curr_j+dy))
         basins.append(len(seen))
 
     res = 1

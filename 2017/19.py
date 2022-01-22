@@ -4,7 +4,6 @@ def read_input():
     input_lst = []
     with open("input/input19.txt") as input_file:
         for line in input_file:
-            line = line
             input_lst.append([i for i in line[:-1]])
     return input_lst
 

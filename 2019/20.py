@@ -58,7 +58,7 @@ def parse_graph(input_lst):
                 new_pos = pos[0]+dd[0], pos[1]+dd[1]
                 if new_pos in nodes:
                     if new_pos not in seen:
-                        queue.appendleft((new_pos, seen, num_steps+1))
+                        queue.append((new_pos, seen, num_steps+1))
     return graph
 
 def part_1(input_lst):
@@ -74,7 +74,7 @@ def part_1(input_lst):
             min_steps = min(num_steps, min_steps)
         for n, dist in graph[pos].items():
             if n not in new_seen:
-                queue.appendleft((n, new_seen, num_steps+dist))
+                queue.append((n, new_seen, num_steps+dist))
     return min_steps
 
 def part_2(input_lst):

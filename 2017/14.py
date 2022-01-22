@@ -52,7 +52,7 @@ def part_2(input_str):
                     new_pos = (curr_pos[0] + dd[0], curr_pos[1] + dd[1])
                     if 0 <= new_pos[0] < 128 and 0 <= new_pos[1] < 128:
                         if new_pos not in seen and grid[new_pos[1]][new_pos[0]] == 1:
-                            queue.appendleft((new_pos))
+                            queue.append((new_pos))
     return res
 
 def main():

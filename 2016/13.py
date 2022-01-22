@@ -37,7 +37,7 @@ def part_1(input_num):
             new_pos = (curr_pos[0]+dd[0], curr_pos[1]+dd[1])
             if 0 <= new_pos[0] < width+1 and 0 <= new_pos[1] < height+1:
                 if grid[new_pos[0], new_pos[1]] == 1 and new_pos not in seen:
-                    queue.appendleft((new_pos, num_steps+1, seen | set([curr_pos])))
+                    queue.append((new_pos, num_steps+1, seen | set([curr_pos])))
     return min_steps
 
 def part_2(input_num):
@@ -67,7 +67,7 @@ def part_2(input_num):
             new_pos = (curr_pos[0]+dd[0], curr_pos[1]+dd[1])
             if 0 <= new_pos[0] < size and 0 <= new_pos[1] < size:
                 if grid[new_pos[0], new_pos[1]] == 1 and new_pos not in seen:
-                    queue.appendleft((new_pos, num_steps+1, seen | set([curr_pos])))
+                    queue.append((new_pos, num_steps+1, seen | set([curr_pos])))
     return len(res_seen)
 
 def main():

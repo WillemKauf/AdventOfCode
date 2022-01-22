@@ -27,12 +27,8 @@ def part_1(input_lst):
         ind += 1
     return curr_num
 
-def part_2(input_lst):
-    pass
-
 def main():
     print(part_1(read_input()))
-    #print(part_2(read_input()))
 
 if __name__ == "__main__":
     main()

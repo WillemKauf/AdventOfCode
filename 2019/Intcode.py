@@ -22,6 +22,7 @@ class IntCode:
             _ = self.parse_code()
             if self.status != "Running":
                 break
+        return self.output
 
     def parse_tape_with_output(self):
         if self.status == "Waiting" and len(self.input):
