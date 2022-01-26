@@ -14,7 +14,6 @@ def part_1(input_lst):
     grid    = []
     while intcode.status != "Halted":
         output = intcode.parse_tape()
-    c_map = {35:"#", 46:"."}
     curr_lst = []
     for c in output:
         if c == 10:
