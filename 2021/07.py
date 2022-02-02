@@ -6,20 +6,16 @@ def read_input():
     return input_lst
 
 def part_1(input_lst):
-    min_fuel = 999999999999
-    for i, num in enumerate(input_lst):
-        curr_fuel_cost = 0
-        for i2, num2 in enumerate(input_lst):
-            curr_fuel_cost += abs(num2 - num)
-        min_fuel = min(curr_fuel_cost, min_fuel)
-    return min_fuel
+    pos = sorted(input_lst)[len(input_lst)//2]
+    return sum([abs(p-pos) for p in input_lst])
 
 def part_2(input_lst):
-    min_fuel = 999999999999
+    min_fuel = int(1e12)
     for i2, num2 in enumerate(range(min(input_lst), max(input_lst))):
         curr_fuel_cost = 0
         for i, num in enumerate(input_lst):
-            sm = sum(range(1, abs(num2-num)+1))
+            n  = abs(num2-num)
+            sm = n*(n+1)//2
             curr_fuel_cost += sm
         min_fuel = min(curr_fuel_cost, min_fuel)
     return min_fuel
