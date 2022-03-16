@@ -70,9 +70,9 @@ def part_1(input_lst):
     seen           = {}
     min_cost       = int(1e12)
     locations      = make_locations(3)
-    heapq.heappush(queue, (0, 0, cnt, nodes, []))
+    heapq.heappush(queue, (0, 0, cnt, nodes))
     while len(queue):
-        num_correct, cost, _, state,history = heapq.heappop(queue)
+        num_correct, cost, _, state = heapq.heappop(queue)
         num_correct *= -1
         if num_correct == 8:
             min_cost = min(min_cost, cost)
@@ -109,7 +109,7 @@ def part_1(input_lst):
                                 continue
                         seen[state_rep] = new_cost
                         cnt += 1
-                        heapq.heappush(queue, (-count_correct(new_state, locations), new_cost, cnt, new_state, history+[state]))
+                        heapq.heappush(queue, (-count_correct(new_state, locations), new_cost, cnt, new_state))
     return min_cost
 
 def part_2(input_lst):
