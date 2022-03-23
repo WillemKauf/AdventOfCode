@@ -21,7 +21,7 @@ auto read_input(){
 int main(){
   auto input = read_input();
 #pragma omp parallel for
-  for(long i = 0; i < 99999999999999; ++i){//This is gonna take a while.
+  for(long i = 11111111111111; i < 99999999999999; ++i){//This is gonna take a while.
     std::map<std::string, int> regs {{"w", 0}, {"x", 0}, {"y", 0}, {"z", 0}};
     std::string num = std::to_string(i);
     auto number_of_zeros = 14 - num.length();
