@@ -8,9 +8,9 @@ Solutions for Advent of Code, 2015-2021.
 <del>I have completed ~80% of 2015-2021, but would like to clean them up before committing them publically.</del>
 
 I am very happy with my progress and my updated solutions for the past years of Advent of Code, and they are now committed publically.
-<del>As of March 2021, I have only a few days left of year 2021 to complete before obtaining all 350 stars!</del>
+<del>As of March 2022, I have only a few days left of year 2021 to complete before obtaining all 350 stars!</del>
 
-March 18, 2021. 350/350 stars. Woohoo!
+March 18, 2022. 350/350 stars. Woohoo!
 
 # Completion
 
