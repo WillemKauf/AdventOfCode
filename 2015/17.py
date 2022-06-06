@@ -1,4 +1,5 @@
 import itertools
+from collections import defaultdict
 
 def read_input():
     input_arr = []
@@ -8,8 +9,7 @@ def read_input():
     return input_arr
 
 def part_1(input_arr):
-    input_arr    = [20, 15, 10, 5, 5]
-    total_amount = 25
+    total_amount = 150
     dp = [1] + [0]*total_amount
     for num in input_arr:
         for target in range(total_amount, num-1, -1):
@@ -18,16 +18,33 @@ def part_1(input_arr):
     return dp[total_amount]
 
 def part_2(input_arr):
+    n            = len(input_arr)
     total_amount = 150
-    num_combs    = 0
-    min_res      = 999999
-    for i in range(1, len(input_arr)): #For loops starts from 4 because text file clearly needs more than 3 bottles
-        for comb in list(itertools.combinations(input_arr, i)):
-            if sum(comb) == total_amount:
-                if i <= min_res:
-                    min_res    = i
-                    num_combs += 1
-    return num_combs
+    combs        = defaultdict(list)
+    seen         = set()
+    def dfs(sm, seq_arr, pick_arr):
+        combs = []
+        for ind, i in enumerate(pick_arr):
+            c = input_arr[i]
+            new_sm  = sm + c
+            new_seq_arr = tuple(sorted(seq_arr + tuple([i])))
+            if new_seq_arr in seen:
+                continue
+            seen.add(new_seq_arr)
+            if new_sm > total_amount:
+                continue
+            elif new_sm < total_amount:
+                new_pick_arr = pick_arr[:ind] + pick_arr[ind+1:]
+                for comb in dfs(new_sm, new_seq_arr, new_pick_arr):
+                    combs.append(comb)
+            elif new_sm == total_amount:
+                combs.append(new_seq_arr)
+        return combs
+
+    for i, c in enumerate(input_arr):
+        for comb in dfs(c, tuple([i]), [j for j in range(i)] + [j for j in range(i+1, n)]):
+            combs[len(comb)].append(tuple([input_arr[i] for i in comb]))
+    return len(combs[min(combs.keys())])
 
 def main():
     input_arr = read_input()
