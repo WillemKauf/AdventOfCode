@@ -20,13 +20,14 @@ def part_1(input_arr):
 def part_2(input_arr):
     n            = len(input_arr)
     total_amount = 150
-    combs        = defaultdict(list)
+    combs        = defaultdict(int)
     seen         = set()
-    def dfs(sm, seq_arr, pick_arr):
-        combs = []
+    def dfs(sm, ln, seq_arr, pick_arr):
+        combs = defaultdict(int)
         for ind, i in enumerate(pick_arr):
             c = input_arr[i]
             new_sm  = sm + c
+            new_ln  = ln + 1
             new_seq_arr = tuple(sorted(seq_arr + tuple([i])))
             if new_seq_arr in seen:
                 continue
@@ -35,16 +36,18 @@ def part_2(input_arr):
                 continue
             elif new_sm < total_amount:
                 new_pick_arr = pick_arr[:ind] + pick_arr[ind+1:]
-                for comb in dfs(new_sm, new_seq_arr, new_pick_arr):
-                    combs.append(comb)
-            elif new_sm == total_amount:
-                combs.append(new_seq_arr)
+                for l, v in dfs(new_sm, new_ln, new_seq_arr, new_pick_arr).items():
+                    combs[l] += v
+            else:
+                combs[new_ln] += 1
         return combs
 
+    min_n = int(1e12)
+    max_v = 0
     for i, c in enumerate(input_arr):
-        for comb in dfs(c, tuple([i]), [j for j in range(i)] + [j for j in range(i+1, n)]):
-            combs[len(comb)].append(tuple([input_arr[i] for i in comb]))
-    return len(combs[min(combs.keys())])
+        for n, v in dfs(c, 1, tuple([i]), [j for j in range(i)] + [j for j in range(i+1, n)]).items():
+            combs[n] += v
+    return combs[min(combs.keys())]
 
 def main():
     input_arr = read_input()
