@@ -1,4 +1,6 @@
 from collections import defaultdict
+import heapq
+
 def read_input():
     input_arr = []
     with open("input/input1.txt", "r") as input_file:
@@ -13,19 +15,21 @@ def read_input():
     return input_arr
 
 def part1(input_arr):
+    heap = []
     res = defaultdict(int)
-    for i, arr in enumerate(input_arr):
-        for j in arr:
-            res[i] += j
-    return max(res.values())
+    for arr in input_arr:
+        heapq.heappush(heap, -sum(arr))
+    return -heap[0]
 
 def part2(input_arr):
+    heap = []
     res = defaultdict(int)
-    for i, arr in enumerate(input_arr):
-        for j in arr:
-            res[i] += j
-    rres = sum(sorted(res.values(), reverse=True)[:3])
-    return rres
+    for arr in input_arr:
+        heapq.heappush(heap, -sum(arr))
+    res = 0
+    for i in range(0, 3):
+        res -= heapq.heappop(heap)
+    return res
 
 def main():
     input_arr = read_input()
