@@ -24,9 +24,7 @@ def part2(input_arr):
     for i, arr in enumerate(input_arr):
         for j in arr:
             res[i] += j
-    rres = 0
-    for i in range(0, 3):
-        rres += sorted(res.values(), reverse=True)[i]
+    rres = sum(sorted(res.values(), reverse=True)[:3])
     return rres
 
 def main():
