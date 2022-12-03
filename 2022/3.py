@@ -12,8 +12,7 @@ def part1(input_arr):
         mid = len(s)//2
         first = set(s[:mid])
         second = set(s[mid:])
-        s = first.intersection(second)
-        c = s.pop()
+        c = (first & second).pop()
         if c.isupper():
             res += ord(c)-ord('A')+27
         else:
@@ -26,8 +25,7 @@ def part2(input_arr):
         first  = set(input_arr[i])
         second = set(input_arr[i+1])
         third  = set(input_arr[i+2])
-        s = first.intersection(second, third)
-        c = s.pop()
+        c = (first & second & third).pop()
         if c.isupper():
             res += ord(c)-ord('A')+27
         else:
