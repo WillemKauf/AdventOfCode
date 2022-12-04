@@ -8,24 +8,12 @@ def read_input():
     return input_arr
 
 def part1(input_arr):
-    res = 0
-    for p in input_arr:
-        a, b, c, d = p
-        if a <= c and b >= d:
-            res += 1
-        elif c <= a and d >= b:
-            res += 1
-    return res
+    func = lambda a,b,c,d : (a <= c and b >= d) or (c <= a and d >= b)
+    return sum([func(*p) for p in input_arr])
 
 def part2(input_arr):
-    res = 0
-    for p in input_arr:
-        a, b, c, d = p
-        start = max(a,c)
-        end   = min(b,d)
-        if start <= end:
-            res += 1
-    return res
+    func = lambda a,b,c,d : max(a,c) <= min(b,d)
+    return sum([func(*p) for p in input_arr])
 
 def main():
     input_arr = read_input()
