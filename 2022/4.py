@@ -11,8 +11,6 @@ def part1(input_arr):
     res = 0
     for p in input_arr:
         a, b, c, d = p
-        start = min(a,c)
-        end   = max(b,d)
         if a <= c and b >= d:
             res += 1
         elif c <= a and d >= b:
