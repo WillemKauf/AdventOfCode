@@ -23,7 +23,7 @@ def part2(input_arr):
         a, b, c, d = p
         start = max(a,c)
         end   = min(b,d)
-        if (start <= end):
+        if start <= end:
             res += 1
     return res
 
