@@ -1,6 +1,5 @@
-import sys
 from collections import defaultdict
-sys.setrecursionlimit(150000)
+
 def read_input():
     input_arr = []
     with open("input/input7.txt", "r") as input_file:
@@ -18,9 +17,9 @@ class File():
         return repr(f"{self.name}, {self.size}")
 
 def create_graph(input_arr):
-    graph = defaultdict(set)
+    graph    = defaultdict(set)
     curr_dir = ""
-    seen = defaultdict(int)
+    seen     = defaultdict(int)
     for cmd in input_arr:
         if cmd[0] == "$":
             if cmd[2:4] == "cd":
@@ -54,16 +53,6 @@ def create_graph(input_arr):
                 graph[curr_dir].add(File(name, size))
     return graph
 
-def part1(input_arr):
-    graph = create_graph(input_arr)
-    graph_vals = defaultdict(int)
-    recurse("/", graph, graph_vals)
-    res = 0
-    for d in graph_vals.values():
-        if d <= 100000:
-            res += d
-    return res
-
 def recurse(node, graph, graph_vals):
     curr_val = 0
     for neighbour in graph[node]:
@@ -73,6 +62,16 @@ def recurse(node, graph, graph_vals):
             curr_val += recurse(neighbour, graph, graph_vals)
     graph_vals[node] = curr_val
     return curr_val
+
+def part1(input_arr):
+    graph = create_graph(input_arr)
+    graph_vals = defaultdict(int)
+    recurse("/", graph, graph_vals)
+    res = 0
+    for d in graph_vals.values():
+        if d <= 100000:
+            res += d
+    return res
 
 def part2(input_arr):
     graph = create_graph(input_arr)
@@ -87,7 +86,6 @@ def part2(input_arr):
         if new_space >= required_space:
             min_d = min(min_d, d)
     return min_d
-
 
 def main():
     print(part1(read_input()))
