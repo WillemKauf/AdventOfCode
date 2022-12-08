@@ -70,16 +70,7 @@ def part1(input_arr):
             row = input_arr[j]
             left_max_col, right_max_col = col_maxs[i]
             left_max_row, right_max_row = row_maxs[j]
-            if c >= left_max_col[j]:
-                res += 1
-                continue
-            if c >= left_max_row[i]:
-                res += 1
-                continue
-            if c >= right_max_col[j]:
-                res += 1
-                continue
-            if c >= right_max_row[i]:
+            if c >= left_max_col[j] or c >= left_max_row[i] or c >= right_max_col[j] or c >= right_max_row[i]:
                 res += 1
     return res
 
