@@ -90,8 +90,6 @@ def part2(input_arr):
                         break
                     ii += dd[0]
                     jj += dd[1]
-            if(i,j)==(2,2):
-                print(i,j,c, res,res[0]*res[1]*res[2]*res[3])
             max_res = max(max_res, res[0]*res[1]*res[2]*res[3])
     return max_res
 
