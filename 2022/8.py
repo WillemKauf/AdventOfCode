@@ -90,10 +90,8 @@ def part2(input_arr):
                 ii = i + dd[0]
                 jj = j + dd[1]
                 while valid(ii,jj,n,m):
-                    if input_arr[jj][ii] < c:
-                        res[k] += 1
-                    else:
-                        res[k] += 1
+                    res[k] += 1
+                    if input_arr[jj][ii] >= c:
                         break
                     ii += dd[0]
                     jj += dd[1]
