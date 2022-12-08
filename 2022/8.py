@@ -60,7 +60,7 @@ def create_col_maxs(input_arr):
 def part1(input_arr):
     m = len(input_arr)
     n = len(input_arr[0])
-    res = 2*m+2*n-4
+    res = 2*m + 2*n - 4
     row_maxs = create_row_maxs(input_arr)
     col_maxs = create_col_maxs(input_arr)
     for j in range(1, m-1):
@@ -108,7 +108,6 @@ def part2(input_arr):
                     jj += dd[1]
             max_res = max(max_res, res[0]*res[1]*res[2]*res[3])
     return max_res
-
 
 def main():
     input_arr = read_input()
