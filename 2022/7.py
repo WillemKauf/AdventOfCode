@@ -44,8 +44,7 @@ def create_graph(input_arr):
                     curr_dir = dr
         else:
             if cmd[0:3] == "dir":
-                dr = cmd[0:3]
-                dr += str(seen[cmd[4:]])
+                dr = cmd[0:3] + str(seen[cmd[4:]])
                 seen[cmd[4:]] += 1
                 graph[curr_dir].add(dr)
             else:
