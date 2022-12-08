@@ -41,19 +41,35 @@ def get_column(input_arr, i):
         col.append(input_arr[j][i])
     return col
 
+def create_row_maxs(input_arr):
+    m = len(input_arr)
+    row_maxs = {}
+    for j in range(1, m-1):
+        row = input_arr[j]
+        row_maxs[j] = [get_left_max_array(row), get_right_max_array(row)]
+    return row_maxs
+
+def create_col_maxs(input_arr):
+    n = len(input_arr[0])
+    col_maxs = {}
+    for i in range(1, n-1):
+        col = get_column(input_arr, i)
+        col_maxs[i] = [get_left_max_array(col), get_right_max_array(col)]
+    return col_maxs
+
 def part1(input_arr):
     m = len(input_arr)
     n = len(input_arr[0])
     res = 2*m+2*n-4
+    row_maxs = create_row_maxs(input_arr)
+    col_maxs = create_col_maxs(input_arr)
     for j in range(1, m-1):
         for i in range(1, n-1):
             c = input_arr[j][i]
             col = get_column(input_arr, i)
             row = input_arr[j]
-            left_max_col = get_left_max_array(col)
-            left_max_row = get_left_max_array(row)
-            right_max_col = get_right_max_array(col)
-            right_max_row = get_right_max_array(row)
+            left_max_col, right_max_col = col_maxs[i]
+            left_max_row, right_max_row = row_maxs[j]
             if c >= left_max_col[j]:
                 res += 1
                 continue
