@@ -8,7 +8,7 @@ def read_input():
             if len(line) == 1:
                 input_arr.append([line[0], None])
             else:
-                input_arr.append(line)
+                input_arr.append([line[0], int(line[1])])
     return input_arr
 
 class CMD():
@@ -17,27 +17,16 @@ class CMD():
         self.timer = timer
 
 def part1(input_arr):
-    x = 1
-    c = 0
-    res = 0
-    s = [20, 60, 100, 140, 180, 220]
     cmds = deque([])
     for a, b in input_arr:
-        if b != None:
-            b = int(b)
         if a == "addx":
             cmds.append(CMD(b,2))
         elif a == "noop":
             cmds.append(CMD(0,1))
-        c += 1
-        if c in s:
-            res += c*x
-        if len(cmds):
-            cmd = cmds[0]
-            cmd.timer -= 1
-            if cmd.timer == 0:
-                x += cmd.val
-                cmds.popleft()
+    x = 1
+    c = 0
+    res = 0
+    s = [20, 60, 100, 140, 180, 220]
     while len(cmds):
         c += 1
         cmd = cmds[0]
@@ -57,28 +46,15 @@ def part2(input_arr):
     h = 6
     grid = [["." for _ in range(0, w)] for _ in range(0, h)]
     s = [40*i for i in range(1, 7)]
-    x = 1
-    c = 0
-    j = 0
     cmds = deque([])
     for a, b in input_arr:
-        if b != None:
-            b = int(b)
         if a == "addx":
             cmds.append(CMD(b,2))
         elif a == "noop":
             cmds.append(CMD(0,1))
-        if c%40 in [x-1, x, x+1]:
-            grid[j][c%40] = "#"
-        c += 1
-        if c in s:
-            j += 1
-        if len(cmds):
-            cmd = cmds[0]
-            cmd.timer -= 1
-            if cmd.timer == 0:
-                x += cmd.val
-                cmds.popleft()
+    x = 1
+    c = 0
+    j = 0
     while len(cmds):
         cmd = cmds[0]
         cmd.timer -= 1
