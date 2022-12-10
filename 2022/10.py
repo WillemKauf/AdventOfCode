@@ -44,7 +44,9 @@ def part1(input_arr):
 def part2(input_arr):
     w = 40
     h = 6
-    grid = [["." for _ in range(0, w)] for _ in range(0, h)]
+    offChar = "⬛"
+    onChar = "⬜"
+    grid = [[offChar for _ in range(0, w)] for _ in range(0, h)]
     s = [40*i for i in range(1, 7)]
     cmds = deque([])
     for a, b in input_arr:
@@ -61,7 +63,7 @@ def part2(input_arr):
         if c in s:
             j += 1
         if c%40 in [x-1, x, x+1]:
-            grid[j][c%40] = "#"
+            grid[j][c%40] = onChar
         c += 1
         if cmd.timer == 0:
             x += cmd.val
@@ -70,7 +72,7 @@ def part2(input_arr):
         if i in s:
             j += 1
         if i in [x-1, x, x+1]:
-            grid[j][i] = "#"
+            grid[j][i] = onChar
     for l in grid:
         print("".join(l))
 
