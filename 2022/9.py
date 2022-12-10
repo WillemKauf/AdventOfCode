@@ -15,20 +15,17 @@ def mag(v):
 def compute_new_tail(head, tail):
     dx = head[0]-tail[0]
     dy = head[1]-tail[1]
+    m = mag([dx,dy])
     if dx != 0 and dy == 0: #horizontal
-        if dx == 1:
+        if abs(dx) == 1:
             return tail
         else:
             tail[0] += sign(dx)
-            if head == tail:
-                tail[0] -= sign(dx)
     elif dy != 0 and dx == 0: #vertical
-        if dy == 1:
+        if abs(dy) == 1:
             return tail
         else:
             tail[1] += sign(dy)
-            if head == tail:
-                tail[1] -= sign(dy)
     elif dx == 0 and dy == 0:
         return tail
     else: #diagonal
