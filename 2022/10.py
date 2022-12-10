@@ -36,9 +36,6 @@ def part1(input_arr):
         if cmd.timer == 0:
             x += cmd.val
             cmds.popleft()
-    for i in range(c, 221):
-        if i in s:
-            res += i*x
     return res
 
 def part2(input_arr):
@@ -68,11 +65,6 @@ def part2(input_arr):
         if cmd.timer == 0:
             x += cmd.val
             cmds.popleft()
-    for i in range(c, 221):
-        if i in s:
-            j += 1
-        if i in [x-1, x, x+1]:
-            grid[j][i] = onChar
     for l in grid:
         print("".join(l))
 
