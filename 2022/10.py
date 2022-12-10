@@ -56,7 +56,7 @@ def part2(input_arr):
     w = 40
     h = 6
     grid = [["." for _ in range(0, w)] for _ in range(0, h)]
-    s = [40, 80, 120, 160, 200, 240]
+    s = [40*i for i in range(1, 7)]
     x = 1
     c = 0
     j = 0
