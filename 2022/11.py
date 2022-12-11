@@ -1,8 +1,10 @@
 import re
+from collections import deque
+
 class Monkey():
     def __init__(self, n, items, op, test, true, false):
         self.n = n
-        self.items = items
+        self.items = deque(items)
         self.op = op
         self.test = test
         self.true = true
@@ -59,14 +61,13 @@ def test_op(item, test, true, false):
 def part1(input_arr):
     for i in range(0, 20):
         for m in input_arr:
-            for k, item in enumerate(m.items):
+            while len(m.items):
+                item = m.items.popleft()
                 item = process_op(item, m.op)
                 item //= 3
                 m_throw = test_op(item, m.test, m.true, m.false)
                 input_arr[m_throw].items.append(item)
-                m.items[k] = None
                 m.n_inspects += 1
-            m.items = [item for item in m.items if item != None]
     input_arr = sorted(input_arr, key = lambda m : m.n_inspects, reverse=True)
 
     return input_arr[0].n_inspects*input_arr[1].n_inspects
@@ -77,14 +78,13 @@ def part2(input_arr):
         BIGNUM *= m.test
     for i in range(0, 10000):
         for m in input_arr:
-            for k, item in enumerate(m.items):
+            while len(m.items):
+                item = m.items.popleft()
                 item = process_op(item, m.op)
                 item %= BIGNUM
                 m_throw = test_op(item, m.test, m.true, m.false)
                 input_arr[m_throw].items.append(item)
-                m.items[k] = None
                 m.n_inspects += 1
-            m.items = [item for item in m.items if item != None]
     input_arr = sorted(input_arr, key = lambda m : m.n_inspects, reverse=True)
 
     return input_arr[0].n_inspects*input_arr[1].n_inspects
