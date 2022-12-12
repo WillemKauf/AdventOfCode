@@ -1,4 +1,4 @@
-from collections import defaultdict
+from collections import deque
 def read_input():
     input_arr = []
     with open("input/input6.txt", "r") as input_file:
@@ -9,21 +9,21 @@ def read_input():
 
 def part1(input_arr):
     n = 4
-    window = []
+    window = deque([])
     for i, c in enumerate(input_arr):
         window.append(c)
         if len(window) > n:
-            window.pop(0)
+            window.popleft()
         if len(window) == len(set(window)) == n:
             return i+1
 
 def part2(input_arr):
     n = 14
-    window = []
+    window = deque([])
     for i, c in enumerate(input_arr):
         window.append(c)
         if len(window) > n:
-            window.pop(0)
+            window.popleft()
         if len(window) == len(set(window)) == n:
             return i+1
 
