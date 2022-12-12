@@ -22,18 +22,7 @@ def get_left_max_array(arr):
     return max_arr
 
 def get_right_max_array(arr):
-    max_arr = []
-    running_max = -1
-    for i,n in enumerate(arr[::-1]):
-        if running_max == -1:
-            running_max = n
-        elif n > running_max:
-            running_max = max(running_max, n)
-        else:
-            if running_max in arr[::-1][:i]:
-                running_max += 1
-        max_arr.append(running_max)
-    return max_arr[::-1]
+    return get_left_max_array(arr[::-1])[::-1]
 
 def get_column(input_arr, i):
     col = []
@@ -66,11 +55,11 @@ def part1(input_arr):
     for j in range(1, m-1):
         for i in range(1, n-1):
             c = input_arr[j][i]
-            col = get_column(input_arr, i)
             row = input_arr[j]
             left_max_col, right_max_col = col_maxs[i]
             left_max_row, right_max_row = row_maxs[j]
-            if c >= left_max_col[j] or c >= left_max_row[i] or c >= right_max_col[j] or c >= right_max_row[i]:
+            vals = [left_max_col[j], left_max_row[i], right_max_col[j], right_max_row[i]]
+            if any([c >= val for val in vals]):
                 res += 1
     return res
 
