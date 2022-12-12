@@ -23,7 +23,7 @@ def part1(input_arr):
             if input_arr[j][i] == "S":
                 start_pos = (i,j)
     queue = deque([(start_pos, 0)])
-    ddir = [[-1,0],[1,0], [0,1],[0,-1]]
+    ddir = [[-1,0],[1,0],[0,1],[0,-1]]
     seen = set([start_pos])
     min_steps = int(1e12)
     m = len(input_arr)
