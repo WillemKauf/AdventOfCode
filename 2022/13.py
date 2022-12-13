@@ -21,7 +21,6 @@ def compareLists(l1, l2):
     p2 = 0
     n1 = len(l1)
     n2 = len(l2)
-    addFlag = True
     while p1 < len(l1) and p2 < len(l2):
         res = compare(l1[p1], l2[p2])
         if res == 0:
@@ -29,10 +28,9 @@ def compareLists(l1, l2):
             p2 += 1
         else:
             if res == -1:
-                addFlag = False
+                return False
             break
-    if addFlag:
-        return p2 < n2
+    return p2 < n2
 
 def compare(v1, v2):
     if isinstance(v1, int) and isinstance(v2, int):
