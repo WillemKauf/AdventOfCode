@@ -64,6 +64,7 @@ def compare(v1, v2):
             return -1
         else:
             return 0
+
 def part1(input_arr):
     sm = 0
     for i, (l1, l2) in enumerate(input_arr, 1):
