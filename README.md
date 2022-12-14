@@ -28,8 +28,10 @@ December 1, 2022, new year, new AoC.
 | 2015 | 50/50 ⭐ |    ✔     |
 
 # Results
+- DNC: Did not compete (did not start problem at release time).
 
 ## 2022
+
 | Day | Part 1   | Part 2|
 | :----: | :-----:   | :-----:   |
 | 1 | 2:27 (718)  |   3:16 (435)    |
@@ -44,7 +46,7 @@ December 1, 2022, new year, new AoC.
 | 10 | 19:34 (3859)  | 34:33 (2943)      |
 | 11 | 23:44 (897)  | 40:54 (1327)      |
 | 12 | 17:34 (769)  | 18:36 (581)      |
-| 13 |   |       |
+| 13 |  DNC |  DNC     |
 | 14 |   |       |
 | 15 |   |       |
 | 16 |   |       |
