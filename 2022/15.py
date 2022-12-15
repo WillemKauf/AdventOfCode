@@ -9,9 +9,6 @@ def read_input():
             input_arr.append([int(i) for i in matches])
     return input_arr
 
-def sign(s):
-    return -1 if s < 0 else 1
-
 def vis(graph):
     min_x = min([p[0] for p in graph.keys()])
     max_x = max([p[0] for p in graph.keys()])
@@ -55,7 +52,7 @@ def part1(input_arr):
         a,b = curr_range
         c,d = ranges[i]
         if b >= c:
-            curr_range = [a,max(b,d)]
+            curr_range = [a, max(b,d)]
     res += curr_range[1]-curr_range[0]+1
     return res
 
