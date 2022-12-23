@@ -45,7 +45,6 @@ def create_start_pos_and_grid_and_corner_mp_part1(input_arr):
                 down  = True if j == len(input_arr)-1 else input_arr[j+1][i] == " "
                 if left or right or up or down:
                     corners.append(([i,j], left, right, up, down))
-                first_pos = False
     corner_mp = {}
     for corner in corners:
         pos, left, right, up, down = corner
@@ -122,15 +121,13 @@ def part1(input_arr, input_instructs):
 
 def create_start_pos_and_grid_and_corner_mp_part2(input_arr):
     """
+                                          1   2
 
+                                          3
 
-     1   2
+                                       5  4
 
-     3
-
-  5  4
-
-  6
+                                       6
 
          |-------|                    |-------|                     |-------|
          |       |                    |   ^   |                     |   ^   |
@@ -172,8 +169,8 @@ def create_start_pos_and_grid_and_corner_mp_part2(input_arr):
          |       |                    |       |                     |       |
          |       |                    |-------|                     |-------|
          |-------|
-
     """
+
     def get_zone(pos):
         x,y = pos
         if 0 <= y < 50:
@@ -370,7 +367,6 @@ def create_start_pos_and_grid_and_corner_mp_part2(input_arr):
                 down  = True if j == len(input_arr)-1 else input_arr[j+1][i] == " "
                 if left or right or up or down:
                     corners.append(([i,j], left, right, up, down))
-                first_pos = False
     corner_mp = {}
     for corner in corners:
         pos = corner[0]
