@@ -18,7 +18,7 @@ December 1, 2022, new year, new AoC.
 
 | Year | Stars   | Complete|
 | :----: | :-----:   | :-----:   |
-| 2022 | 46/50 ⭐  |       |
+| 2022 | 48/50 ⭐  |       |
 | 2021 | 50/50 ⭐ |    ✔   |
 | 2020 | 50/50 ⭐ |    ✔   |
 | 2019 | 50/50 ⭐ |    ✔   |
@@ -29,6 +29,7 @@ December 1, 2022, new year, new AoC.
 
 # Results
 - DNC: Did not compete (did not start problem at release time).
+- **(Around this time, I went to New York.)
 
 ## 2022
 
@@ -46,7 +47,7 @@ December 1, 2022, new year, new AoC.
 | 10 | 19:34 (3859)  | 34:33 (2943)      |
 | 11 | 23:44 (897)  | 40:54 (1327)      |
 | 12 | 17:34 (769)  | 18:36 (581)      |
-| 13 |  DNC |  DNC     |
+| 13** |  DNC |  DNC     |
 | 14 |  DNC | DNC      |
 | 15 |  DNC | DNC      |
 | 16 | DNC  | DNC      |
@@ -57,7 +58,5 @@ December 1, 2022, new year, new AoC.
 | 21 | DNC  | DNC      |
 | 22 | DNC  | DNC      |
 | 23 | DNC  | DNC      |
-| 24 |   |       |
+| 24 | DNC  | DNC      |
 | 25 |   |       |
-
-
