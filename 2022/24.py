@@ -119,7 +119,7 @@ def part2(input_arr):
 
 def main():
     input_arr = read_input()
-    #print(part1(input_arr[:]))
+    print(part1(input_arr[:]))
     print(part2(input_arr[:]))
 
 if __name__ == "__main__":
