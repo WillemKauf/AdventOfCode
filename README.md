@@ -12,13 +12,15 @@ I am very happy with my progress and my updated solutions for the past years of 
 
 March 18, 2022. 350/350 stars. Woohoo!
 
-December 1, 2022, new year, new AoC.
+<del>December 1, 2022, new year, new AoC. </del>
+
+December 25, 2022, 400/400 stars.
 
 # Completion
 
 | Year | Stars   | Complete|
 | :----: | :-----:   | :-----:   |
-| 2022 | 48/50 ⭐  |       |
+| 2022 | 50/50 ⭐  |       |
 | 2021 | 50/50 ⭐ |    ✔   |
 | 2020 | 50/50 ⭐ |    ✔   |
 | 2019 | 50/50 ⭐ |    ✔   |
@@ -59,4 +61,4 @@ December 1, 2022, new year, new AoC.
 | 22 | DNC  | DNC      |
 | 23 | DNC  | DNC      |
 | 24 | DNC  | DNC      |
-| 25 |   |       |
+| 25 | 36:27 (1602)  | 36:31 (1348)      |
